@@ -27,9 +27,9 @@ class Usuario(models.Model):
             self.fecha_creacion = timezone.localtime(timezone.now())
         if self.id_unica is None:
             self.id_unica = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {}'.format(self.duegno.nombre, self.id_unica))
+            self.slug = slugify('{} {}'.format(self.nombre_usuario, self.idusuario))
 
-        self.slug = slugify('{} {}'.format(self.duegno.nombre, self.id_unica))
+        self.slug = slugify('{} {}'.format(self.nombre_usuario, self.idusuario))
         self.ultima_actualizacion = timezone.localtime(timezone.now())
         super(Usuario, self).save(*args, **kwargs)
 
@@ -94,7 +94,7 @@ class Imagen (models.Model):
     ultima_actualizacion = models.DateTimeField(blank= True, null= True)
 
     def __str__(self):
-        return '{} {}'.format(self.etiqueta.nombre, self.id_unica)
+        return '{} {}'.format(self.etiqueta.nombre, self.idimagen)
             
     def get_absolute_url(self):
         return reverse('detalle-de-imagen', kwargs={'slug': self.slug})
@@ -104,10 +104,10 @@ class Imagen (models.Model):
             self.fecha_creacion = timezone.localtime(timezone.now())
         if self.id_unica is None:
             self.id_unica = str(uuid4()).split('-')[4]
-            self.slug = slugify('{} {}'.format(self.categoria.nombre, self.id_unica))
+            self.slug = slugify('{} {}'.format(self.categoria.nombre, self.idimagen))
 
 
-        self.slug = slugify('{} {}'.format(self.categoria.nombre, self.id_unica))
+        self.slug = slugify('{} {}'.format(self.categoria.nombre, self.idimagen))
         self.ultima_actualizacion = timezone.localtime(timezone.now())
         super(Imagen, self).save(*args, **kwargs)
             
