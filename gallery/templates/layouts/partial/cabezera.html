@@ -1,0 +1,23 @@
+{%load static%}
+<header>
+    <div id = "logo_pagina">
+        <a href = "{%url 'index'%}">
+            <img src = "{%static 'image/galeria.png'%}" alt="logo_galeria">
+            <h1>Gallery</h1>
+        </a>
+    </div>
+    <div id="buscar_galeria">
+        <input type="text" id = "busqueda" required>
+        <button type="submit">Buscar</button>
+    </div>
+    <div>
+        {%block user%}
+            <button type="submit" href="{%url 'validar_cuenta'%}">Cuenta</button>
+        {%endblock%}
+        <div id="menu_emergente">
+            <a href="{% url 'subir_imagenes'%}">
+                <img src = "{%static 'image/subir-flecha-arriba.png'%}" alt = "menu">
+            </a>
+        </div>
+    </div>
+</header>
