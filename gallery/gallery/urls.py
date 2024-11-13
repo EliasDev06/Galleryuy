@@ -7,7 +7,8 @@ from . import vista
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('album.urls')),
-    path('', vista.index, name='index'),
+    path('accounts/', include('django.contrib.auth.urls')),
+   # path('login/', vista.login, name= 'login'),
     path('subir_imagenes/', vista.subir_imagenes, name='subir_imagenes'),
     path('validar_cuenta/', vista.validar_cuenta, name='validar_cuenta')
 ]

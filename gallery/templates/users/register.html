@@ -1,0 +1,16 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    Crea una cuenta 
+{% endblock %}
+
+{% block content %}
+    <h1>Crea una cuenta </h1>
+    <form class =  "form-with-validation" action="/users/register/"
+     method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button class = "form-submit"> Registrar </button>
+    </form>
+{% endblock %}
+    
