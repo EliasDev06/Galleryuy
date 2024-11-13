@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+  Iniciar Sesión
+{% endblock %}
+
+{% block content %}
+  <h1> Inicie Sesión</h1>
+  <form class="form-with-validation" action="/users/login/"
+  method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button class="form-submit">Iniciar</button>
+</form>
+
+
+{% endblock %}
